@@ -338,6 +338,15 @@ var _ = {};
   // input array. For a tip on how to make a copy of an array, see:
   // http://mdn.io/Array.prototype.slice
   _.shuffle = function(array) {
+    var result = array.slice(0);
+    var temp; var rand;
+    for (var i = result.length-1; i >= 0; i--) {
+      rand = Math.floor(Math.random() * i);
+      temp = result[i];
+      result[i] = result[rand];
+      result[rand] = temp;
+    };
+    return result;
   };
 
 
@@ -350,7 +359,7 @@ var _ = {};
   // Sort the object's values by a criterion produced by an iterator.
   // If iterator is a string, sort objects by that property with the name
   // of that string. For example, _.sortBy(people, 'name') should sort
-  // an array of people by their name.
+  // an result of people by their name.
   _.sortBy = function(collection, iterator) {
   };
 
