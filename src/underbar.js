@@ -155,6 +155,15 @@ var _ = {};
   //     return total + number;
   //   }, 0); // should be 6
   _.reduce = function(collection, iterator, accumulator) {
+    if (accumulator === undefined) {
+      var total = collection[0];
+    } else {
+      var total = accumulator;
+    }
+    collection.forEach(function(item){
+      total = iterator(total, item)
+    });
+    return total;
   };
 
   // Determine if the array or object contains a given value (using `===`).
