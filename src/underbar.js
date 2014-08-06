@@ -297,6 +297,20 @@ var _ = {};
   // already computed the result for the given argument and return that value
   // instead if possible.
   _.memoize = function(func) {
+    var res;
+    var past_results = {}
+    return function() {
+      var past_parameters = Object.keys(past_results);
+      var args = arguments[0];
+      var notCalledBefore = !_.contains(past_parameters, args)
+      if (notCalledBefore) {
+        res = func.apply(this, arguments);
+        past_results[args] = res;
+      } else {
+        res = past_results[args];
+      }
+      return res;
+    };
   };
 
   // Delays a function for the given number of milliseconds, and then calls

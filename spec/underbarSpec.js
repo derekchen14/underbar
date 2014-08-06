@@ -380,10 +380,10 @@ describe('extend', function() {
 describe('defaults', function() {
   var options;
 
-  // beforeEach(function() {
-  //   options = {zero: 0, one: 1, empty: '', nan: NaN, string: 'string'};
-  //   _.defaults(options, {zero: 1, one: 10, twenty: 20}, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
-  // });
+  beforeEach(function() {
+    options = {zero: 0, one: 1, empty: '', nan: NaN, string: 'string'};
+    _.defaults(options, {zero: 1, one: 10, twenty: 20}, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
+  });
 
   it('returns the first argument', function() {
     var to = {};
