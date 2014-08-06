@@ -88,7 +88,7 @@ var _ = {};
     _.each(collection, function(item, index){
       if (test(item)) {result.push(item)}
     });
-    return result
+    return result;
   };
 
   // Return all elements of an array that don't pass a truth test.
@@ -97,11 +97,16 @@ var _ = {};
     _.each(collection, function(item, index){
       if (!test(item)) {result.push(item)}
     });
-    return result
+    return result;
   };
 
   // Produce a duplicate-free version of the array.
   _.uniq = function(array) {
+    var result = [];
+    _.each(array, function(num){
+      if (_.indexOf(result, num) < 0) { result.push(num); }
+    });
+    return result;
   };
 
 
