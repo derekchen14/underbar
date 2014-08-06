@@ -380,10 +380,10 @@ describe('extend', function() {
 describe('defaults', function() {
   var options;
 
-  beforeEach(function() {
-    options = {zero: 0, one: 1, empty: '', nan: NaN, string: 'string'};
-    _.defaults(options, {zero: 1, one: 10, twenty: 20}, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
-  });
+  // beforeEach(function() {
+  //   options = {zero: 0, one: 1, empty: '', nan: NaN, string: 'string'};
+  //   _.defaults(options, {zero: 1, one: 10, twenty: 20}, {empty: 'full'}, {nan: 'nan'}, {word: 'word'}, {word: 'dog'});
+  // });
 
   it('returns the first argument', function() {
     var to = {};
@@ -393,7 +393,7 @@ describe('defaults', function() {
     expect(defaulted).to.equal(to);
   });
 
-  it('should copy a property if that key is already set on the target', function() {
+  it('should copy a property if that key is not set on the target', function() {
     var to = {};
     var from = {a:1};
     var defaulted = _.defaults(to, from);

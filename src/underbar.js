@@ -245,6 +245,17 @@ var _ = {};
   // Like extend, but doesn't ever overwrite a key that already
   // exists in obj
   _.defaults = function(obj) {
+    var result = obj;
+    var args = Array.prototype.slice.call(arguments, 1)
+    args.forEach(function(item){
+      for(var key in item) {
+        var keyDoesntExist = !_.contains(Object.keys(result), key);
+        if (keyDoesntExist) {
+          result[key] = item[key];
+        }
+      }
+    });
+    return result;
   };
 
 
