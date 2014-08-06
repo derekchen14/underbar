@@ -215,7 +215,7 @@ describe('reduce', function() {
 
     expect(total).to.equal(6);
   });
-  
+
   it('should default to the first item in the array', function() {
     var add = function(tally, item) {return tally + item; };
     var total = _.reduce([1, 2, 3], add);
